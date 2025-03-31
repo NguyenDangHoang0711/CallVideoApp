@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 app.use(cors());
@@ -8,7 +7,6 @@ app.use(express.json());
 // Thay thế bằng API Key SID và API Key Secret thực tế của bạn từ Stringee
 const API_KEY_SID = process.env.API_KEY_SID;
 const API_KEY_SECRET = process.env.API_KEY_SECRET;
-app.use(bodyParser.json());
 // Endpoint để tạo userId và Access Token
 app.post('/tool/GenerateAccesstoken', (req, res) => {
     const { username } = req.body;
