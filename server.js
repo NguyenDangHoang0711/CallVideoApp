@@ -6,8 +6,8 @@ app.use(cors());
 const app = express();
 app.use(express.json());
 // Thay thế bằng API Key SID và API Key Secret thực tế của bạn từ Stringee
-const API_KEY_SID = 'SK.0.mETAkphlfqvg4shoBDDgbJPoIA4Be6x';
-const API_KEY_SECRET = 'YUZBZHlFMEhBcmEyOFN6NUh4RUE4dUdtZUVkczhETjY=';
+const API_KEY_SID = process.env.API_KEY_SID;
+const API_KEY_SECRET = process.env.API_KEY_SECRET;
 app.use(bodyParser.json());
 // Endpoint để tạo userId và Access Token
 app.post('/tool/GenerateAccesstoken', (req, res) => {
