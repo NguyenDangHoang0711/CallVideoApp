@@ -1,9 +1,13 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
-app.use(cors());
+const bodyParser = require('body-parser');
+
 const app = express();
+
+app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 // Thay thế bằng API Key SID và API Key Secret thực tế của bạn từ Stringee
 const API_KEY_SID = process.env.API_KEY_SID;
 const API_KEY_SECRET = process.env.API_KEY_SECRET;
