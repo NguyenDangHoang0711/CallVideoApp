@@ -38,7 +38,8 @@ app.post('/project_event_url', (req, res) => {
         app: {
             allow: true,          // ✅ Quan trọng: cho phép gọi
             callerId: from,       // ID người gọi
-            record: false         // (tuỳ chọn) không ghi âm
+            record: false,         // (tuỳ chọn) không ghi âm
+            videoCall: true
         }
     };
 
