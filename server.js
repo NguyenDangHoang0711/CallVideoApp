@@ -29,6 +29,22 @@ app.post('/tool/GenerateAccesstoken', (req, res) => {
     const token = jwt.sign(payload, API_KEY_SECRET, { algorithm: 'HS256' });
     res.json({ userId, token });
 });
+// Xử lý yêu cầu từ Stringee để cho phép gọi
+app.post('/answer_url', (req, res) => {
+    const { from, to } = req.body;
+    console.log(`Cuộc gọi từ ${from} đến ${to}`);
+
+    const response = {
+        app: {
+            allow: true,          // ✅ Quan trọng: cho phép gọi
+            callerId: from,       // ID người gọi
+            record: false         // (tuỳ chọn) không ghi âm
+        }
+    };
+
+    res.json(response);
+});
+
 app.get('/', (req, res) => {
     res.send('Server is up and running!');
 });
