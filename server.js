@@ -63,7 +63,7 @@ app.post('/project_answer_url', (req, res) => {
     ];
 
     res.setHeader("Content-Type", "application/json");
-    res.json(response);
+    res.status(200).json(response);
 });
 
 const PORT = process.env.PORT || 3000;
