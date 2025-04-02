@@ -33,17 +33,17 @@ app.post('/tool/GenerateAccesstoken', (req, res) => {
 app.post('/project_answer_url', (req, res) => {
     const { from, to } = req.body;
     console.log(`Cuộc gọi từ ${from} đến ${to}`);
-
+    res.type('json');
     const response = [
         {
             "action": "connect",
             "from": {
                 "type": "internal",
-                "number": from
+                "number": req.body.from
             },
             "to": {
                 "type": "internal",
-                "number": to
+                "number": req.body.to
             }
         }
     ];
