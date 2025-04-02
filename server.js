@@ -33,21 +33,24 @@ app.post('/tool/GenerateAccesstoken', (req, res) => {
 app.post('/project_answer_url', (req, res) => {
     const { from, to } = req.body;
     console.log(`Cuộc gọi từ ${from} đến ${to}`);
-    res.type('json');
+    if (!from || !to) {
+        console.error('Missing "from" or "to" parameter');
+        return res.status(400).json({ message: 'Missing "from" or "to" parameter' });
+    }
     const response = [
         {
             "action": "connect",
             "from": {
                 "type": "internal",
-                "number": req.body.from
+                "number": from
             },
             "to": {
                 "type": "internal",
-                "number": req.body.to
+                "number": to
             }
         }
     ];
-
+    res.setHeader('Content-Type', 'application/json');
     res.json(response);
 });
 
