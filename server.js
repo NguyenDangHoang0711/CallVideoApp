@@ -52,7 +52,7 @@ app.post('/project_answer_url', (req, res) => {
             peerToPeerCall: false // true nếu muốn cuộc gọi peer-to-peer, false nếu muốn qua server
         }
     ];
-    res.json(response);
+    res.json(scco);
 });
 
 app.get('/', (req, res) => {
