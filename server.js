@@ -34,25 +34,21 @@ app.post('/project_answer_url', (req, res) => {
     const { from, to } = req.body;
     console.log(`Cuộc gọi từ ${from} đến ${to}`);
 
-    const scco = [
+    const response = [
         {
-            action: 'connect',
-            from: {
-                type: 'internal',
-                number: from,
-                
+            "action": "connect",
+            "from": {
+                "type": "internal",
+                "number": from
             },
-            to: {
-                type: 'internal',
-                number: to,
-                
-            },
-            timeout: 45,          // Thời gian chờ trước khi kết thúc cuộc gọi nếu không có phản hồi
-            maxConnectTime: -1,   // Thời gian tối đa cho cuộc gọi (-1 là không giới hạn)
-            peerToPeerCall: false // true nếu muốn cuộc gọi peer-to-peer, false nếu muốn qua server
+            "to": {
+                "type": "internal",
+                "number": to
+            }
         }
     ];
-    res.json(scco);
+
+    res.json(response);
 });
 
 app.get('/', (req, res) => {
