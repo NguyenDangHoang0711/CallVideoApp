@@ -38,9 +38,9 @@ app.post('/project_answer_url', (req, res) => {
     const { from, to } = req.body;
     console.log(`Cuộc gọi từ ${from} đến ${to}`);
 
-    if (!from || !to) {
-        console.error('Missing "from" or "to" parameter');
-        return res.status(400).json({ message: 'Missing "from" or "to" parameter' });
+    if (!from || !to || typeof from !== 'string' || typeof to !== 'string') {
+        console.error('❌ Thiếu hoặc sai kiểu "from" hoặc "to"');
+        return res.status(400).json({ message: 'Missing or invalid "from" or "to" parameter' });
     }
 
     const response = [
