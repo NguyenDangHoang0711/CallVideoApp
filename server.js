@@ -39,13 +39,13 @@ app.post('/project_answer_url', (req, res) => {
     }
     const response = [
         {
-            "action": "connect",
+            "action": 'connect',
             "from": {
-                "type": "internal",
+                "type": 'internal',
                 "number": from
             },
             "to": {
-                "type": "internal",
+                "type": 'internal',
                 "number": to
             }
         }
