@@ -40,12 +40,12 @@ app.post('/project_answer_url', (req, res) => {
             from: {
                 type: 'internal',
                 number: from,
-                alias: from
+                
             },
             to: {
                 type: 'internal',
                 number: to,
-                alias: to
+                
             },
             timeout: 45,          // Thời gian chờ trước khi kết thúc cuộc gọi nếu không có phản hồi
             maxConnectTime: -1,   // Thời gian tối đa cho cuộc gọi (-1 là không giới hạn)
