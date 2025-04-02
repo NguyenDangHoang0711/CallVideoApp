@@ -30,7 +30,7 @@ app.post('/tool/GenerateAccesstoken', (req, res) => {
     res.json({ userId, token });
 });
 // Xử lý yêu cầu từ Stringee để cho phép gọi
-app.post('/project_answer_url', (req, res) => {
+app.post('/project_event_url', (req, res) => {
     const { from, to } = req.body;
     console.log(`Cuộc gọi từ ${from} đến ${to}`);
     if (!from || !to) {
