@@ -34,15 +34,24 @@ app.post('/project_answer_url', (req, res) => {
     const { from, to } = req.body;
     console.log(`Cuộc gọi từ ${from} đến ${to}`);
 
-    const response = {
-        app: {
-            allow: true,          // ✅ Quan trọng: cho phép gọi
-            callerId: from,       // ID người gọi
-            record: false,         // (tuỳ chọn) không ghi âm
-            
+    const scco = [
+        {
+            action: 'connect',
+            from: {
+                type: 'internal',
+                number: from,
+                alias: from
+            },
+            to: {
+                type: 'internal',
+                number: to,
+                alias: to
+            },
+            timeout: 45,          // Thời gian chờ trước khi kết thúc cuộc gọi nếu không có phản hồi
+            maxConnectTime: -1,   // Thời gian tối đa cho cuộc gọi (-1 là không giới hạn)
+            peerToPeerCall: false // true nếu muốn cuộc gọi peer-to-peer, false nếu muốn qua server
         }
-    };
-
+    ];
     res.json(response);
 });
 
