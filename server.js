@@ -35,7 +35,7 @@ app.post('/tool/GenerateAccesstoken', (req, res) => {
 
 // ✅ Xử lý yêu cầu từ Stringee để cấp quyền gọi
 app.get('/project_answer_url', (req, res) => {
-    const { from, to } = req.body;
+    const { from, to } = req.query;
     console.log(`Cuộc gọi từ ${from} đến ${to}`);
     console.log(`✅ Đã nhận request: ${req.method} ${req.url}`);
     console.log("🔎 Query params:", req.query);
