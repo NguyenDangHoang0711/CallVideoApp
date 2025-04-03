@@ -40,6 +40,8 @@ app.get('/project_answer_url', (req, res) => {
 
     if (!from || !to || typeof from !== 'string' || typeof to !== 'string') {
         console.error('❌ Thiếu hoặc sai kiểu "from" hoặc "to"');
+        console.log("req.query.from:", req.query.from);
+        console.log("req.query.to:", req.query.to);
         return res.status(400).json({ message: 'Missing or invalid "from" or "to" parameter' });
     }
 
