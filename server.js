@@ -39,6 +39,9 @@ app.get('/project_answer_url', (req, res) => {
     console.log(`Cuộc gọi từ ${from} đến ${to}`);
     console.log(`✅ Đã nhận request: ${req.method} ${req.url}`);
     console.log("🔎 Query params:", req.query);
+    console.log("✅ from:", from);
+    console.log("✅ to:", to);
+
     if (!from || !to || typeof from !== 'string' || typeof to !== 'string') {
         console.error('❌ Thiếu hoặc sai kiểu "from" hoặc "to"');
         return res.status(400).json({ message: 'Missing or invalid "from" or "to" parameter' });
