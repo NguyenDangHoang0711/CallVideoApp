@@ -37,11 +37,10 @@ app.post('/tool/GenerateAccesstoken', (req, res) => {
 app.get('/project_answer_url', (req, res) => {
     const { from, to } = req.body;
     console.log(`Cuộc gọi từ ${from} đến ${to}`);
-
+    console.log(`✅ Đã nhận request: ${req.method} ${req.url}`);
+    console.log("🔎 Query params:", req.query);
     if (!from || !to || typeof from !== 'string' || typeof to !== 'string') {
         console.error('❌ Thiếu hoặc sai kiểu "from" hoặc "to"');
-        console.log("req.query.from:", req.query.from);
-        console.log("req.query.to:", req.query.to);
         return res.status(400).json({ message: 'Missing or invalid "from" or "to" parameter' });
     }
 
@@ -63,7 +62,7 @@ app.get('/project_answer_url', (req, res) => {
             peerToPeerCall: false
         }
     ];
-
+    
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(response);
 });
