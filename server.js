@@ -46,6 +46,10 @@ app.get('/project_answer_url', (req, res) => {
         console.error('❌ Thiếu hoặc sai kiểu "from" hoặc "to"');
         return res.status(400).json({ message: 'Missing or invalid "from" or "to" parameter' });
     }
+    if (!to) {
+        console.error('❌ Thiếu tham số "to"');
+        return res.status(400).json({ message: 'Missing "to" parameter' });
+    }
 
     const response = [
         {
